@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_details/models/movie.dart';
+import 'package:movie_details/widgets/movie_detail_header.dart';
 
 
 class MovieDetailsPage extends StatelessWidget {
@@ -12,7 +13,7 @@ class MovieDetailsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-//            MovieDetailHeader(movie),
+            MovieDetailHeader(movie),
 //            Padding(
 //              padding: const EdgeInsets.all(20.0),
 //              child: Storyline(movie.storyline),
