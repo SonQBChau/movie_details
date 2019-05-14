@@ -20,6 +20,7 @@ class MovieDetailsPage extends StatelessWidget {
             StoryLine(movie.storyline),
             PhotoScroller(movie.photoUrls),
             ActorScroller(movie.actors),
+            SizedBox(height: 20.0),
 //            Padding(
 //              padding: const EdgeInsets.all(20.0),
 //              child: Storyline(movie.storyline),

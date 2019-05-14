@@ -20,12 +20,11 @@ class ActorScroller extends StatelessWidget {
             height: 10,
           ),
           SizedBox(
-            height: 80,
+            height: 100,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: actors
-                  .map<Widget>((actor) => _buildAvatar(actor.avatarUrl))
-                  .toList(),
+              children:
+                  actors.map<Widget>((actor) => _buildAvatar(actor)).toList(),
             ),
           ),
         ],
@@ -33,12 +32,20 @@ class ActorScroller extends StatelessWidget {
     );
   }
 
-  _buildAvatar(String name) {
+  _buildAvatar(Actor actor) {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
-      child: CircleAvatar(
-        radius: 40,
-        backgroundImage: AssetImage(name),
+      child: Column(
+        children: <Widget>[
+          CircleAvatar(
+            radius: 40,
+            backgroundImage: AssetImage(actor.avatarUrl),
+          ),
+          SizedBox(
+            height: 3,
+          ),
+          Text(actor.name),
+        ],
       ),
     );
   }
