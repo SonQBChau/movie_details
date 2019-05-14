@@ -184,13 +184,15 @@ class Poster extends StatelessWidget {
     double height = 180;
     double width = POSTER_RATIO * height;
     return Material(
+      elevation: 5,
+      child: ClipRRect(
       borderRadius: BorderRadius.circular(4),
-      elevation: 2,
-      child: Image.asset(
-        posterUrl,
-        width: width,
-        height: height,
-        fit: BoxFit.cover,
+        child: Image.asset(
+          posterUrl,
+          width: width,
+          height: height,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
