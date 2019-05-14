@@ -10,7 +10,10 @@ class MovieDetailHeader extends StatelessWidget {
     return Container(
       child: Stack(
         children: <Widget>[
-          ArcBannerImage(movie.bannerUrl),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 150),
+            child: ArcBannerImage(movie.bannerUrl),
+          ),
           MovieInfoRow(movie),
         ],
       ),
@@ -52,6 +55,7 @@ class MovieInfoRow extends StatelessWidget {
       left: 16.0,
       right: 16.0,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
           Poster(movie.posterUrl),
           SizedBox(
@@ -109,7 +113,7 @@ class CategoryChip extends StatelessWidget {
         color: Colors.black12,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Text(text),
+      child: Text(text, style: TextStyle(color: Colors.black87)),
     );
   }
 }
@@ -140,7 +144,7 @@ class StarRating extends StatelessWidget {
         SizedBox(
           height: 5,
         ),
-        Text('Grade now'),
+        Text('Grade now', style: TextStyle(color: Colors.black45)),
       ],
     );
   }
@@ -165,7 +169,7 @@ class RatingInformation extends StatelessWidget {
         SizedBox(
           height: 5,
         ),
-        Text('Ratings'),
+        Text('Ratings', style: TextStyle(color: Colors.black45),),
       ],
     );
   }
@@ -183,16 +187,14 @@ class Poster extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = 180;
     double width = POSTER_RATIO * height;
-    return Material(
-      elevation: 5,
-      child: ClipRRect(
-      borderRadius: BorderRadius.circular(4),
-        child: Image.asset(
-          posterUrl,
-          width: width,
-          height: height,
-          fit: BoxFit.cover,
-        ),
+    return ClipRRect(
+    borderRadius: BorderRadius.circular(10),
+      child: Image.asset(
+        posterUrl,
+        width: width,
+        height: height,
+        fit: BoxFit.cover,
+
       ),
     );
   }
