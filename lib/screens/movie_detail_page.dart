@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_details/models/movie.dart';
 import 'package:movie_details/widgets/movie_detail_header.dart';
+import 'package:movie_details/widgets/story_line.dart';
 
 
 class MovieDetailsPage extends StatelessWidget {
@@ -14,6 +15,7 @@ class MovieDetailsPage extends StatelessWidget {
         child: Column(
           children: [
             MovieDetailHeader(movie),
+            StoryLine(movie.storyline),
 //            Padding(
 //              padding: const EdgeInsets.all(20.0),
 //              child: Storyline(movie.storyline),
