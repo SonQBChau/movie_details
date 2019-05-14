@@ -48,30 +48,32 @@ class MovieInfoRow extends StatelessWidget {
           SizedBox(
             width: 10,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                movie.title,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: <Widget>[
-                  RatingInformation(movie.rating),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  StarRating(movie.starRating),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CategoryChip(movie.categories),
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  movie.title,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: <Widget>[
+                    RatingInformation(movie.rating),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    StarRating(movie.starRating),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CategoryChip(movie.categories),
+              ],
+            ),
           ),
         ],
       ),
