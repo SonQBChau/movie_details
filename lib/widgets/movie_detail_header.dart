@@ -53,7 +53,10 @@ class MovieInfoRow extends StatelessWidget {
             children: <Widget>[
               Text(
                 movie.title,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 10,
               ),
               Row(
                 children: <Widget>[
@@ -64,13 +67,15 @@ class MovieInfoRow extends StatelessWidget {
                   StarRating(movie.starRating),
                 ],
               ),
+              SizedBox(
+                height: 10,
+              ),
               CategoryChip(movie.categories),
             ],
           ),
         ],
       ),
     );
-
   }
 }
 
@@ -82,24 +87,21 @@ class CategoryChip extends StatelessWidget {
   final List<String> categories;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: categories.map((title) => buildChip(title)).toList()
-    );
+    return Row(children: categories.map((title) => buildChip(title)).toList());
   }
 
   Container buildChip(String text) {
     return Container(
-      margin: EdgeInsets.only(right:10),
-        padding: EdgeInsets.symmetric(vertical: 8,horizontal: 16),
-          decoration: BoxDecoration(
-            color:Colors.black12,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Text(text),
-      );
+      margin: EdgeInsets.only(right: 10),
+      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.black12,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(text),
+    );
   }
 }
-
 
 /*
 GRADE WIDGET
@@ -107,26 +109,25 @@ GRADE WIDGET
 class StarRating extends StatelessWidget {
   StarRating(this.starRating);
   final int starRating;
+  List<Widget> starList = [];
   @override
   Widget build(BuildContext context) {
+    for (var i = 1; i < 6; i++) {
+      var color = i <= starRating ? Colors.red : Colors.black26;
+      starList.add(Icon(
+        Icons.star,
+        color: color,
+      ));
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
-          children: <Widget>[
-            Icon(
-              Icons.star,
-              color: Colors.red,
-            ),
-            Icon(
-              Icons.star,
-              color: Colors.red,
-            ),
-            Icon(
-              Icons.star,
-              color: Colors.red,
-            ),
-          ],
+          children: starList,
+        ),
+        SizedBox(
+          height: 5,
         ),
         Text('Grade now'),
       ],
@@ -148,7 +149,10 @@ class RatingInformation extends StatelessWidget {
         Text(
           rating.toString(),
           style: TextStyle(
-              color: Colors.red, fontSize: 20, fontWeight: FontWeight.w300),
+              color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+        ),
+        SizedBox(
+          height: 5,
         ),
         Text('Ratings'),
       ],
